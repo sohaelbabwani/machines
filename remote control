@@ -1,0 +1,105 @@
+import time
+
+class RemoteControl:
+
+    def __init__(self, device):
+        self.device = device
+
+    def power(self):
+        if self.device.is_on:
+            self.device.turn_off()
+        else:
+            self.device.turn_on()
+
+    def volume_up(self):
+        self.device.increase_volume()
+
+    def volume_down(self.device):
+        self.device.decrease_volume()
+
+    def channel_up(self):
+        self.device.increase_channel()
+
+    def channel_down(self):
+        self.device.decrease_channel()
+
+    def mute(self):
+        self.device.mute()
+
+    def unmute(self):
+        self.device.unmute()
+
+
+class Device:
+
+    def __init__(self, name):
+        self.name = name
+        self.is_on = False
+        self.volume = 10
+        self.current_channel = 1
+
+    def turn_on(self):
+        self.is_on = True
+
+    def turn_off(self):
+        self.is_on = False
+
+    def increase_volume(self):
+        self.volume += 1
+
+    def decrease_volume(self):
+        self.volume -= 1
+
+    def increase_channel(self):
+        self.current_channel += 1
+
+    def decrease_channel(self):
+        self.current_channel -= 1
+
+    def mute(self):
+        self.volume = 0
+
+    def unmute(self):
+        self.volume = 10
+
+
+def main():
+    remote_control = RemoteControl(Device("TV"))
+
+    while True:
+        time.sleep(1)
+
+        if remote_control.device.is_on:
+            print("TV is on")
+        else:
+            print("TV is off")
+
+        print("Volume:", remote_control.device.volume)
+        print("Channel:", remote_control.device.current_channel)
+
+        if remote_control.device.volume == 0:
+            print("TV is muted")
+        else:
+            print("TV is not muted")
+
+        input("Press Enter to continue...")
+
+        command = input("Enter a command (power, volume_up, volume_down, channel_up, channel_down, mute, unmute): ")
+
+        if command == "power":
+            remote_control.power()
+        elif command == "volume_up":
+            remote_control.volume_up()
+        elif command == "volume_down":
+            remote_control.volume_down()
+        elif command == "channel_up":
+            remote_control.channel_up()
+        elif command == "channel_down":
+            remote_control.channel_down()
+        elif command == "mute":
+            remote_control.mute()
+        elif command == "unmute":
+            remote_control.unmute()
+
+if __name__ == "__main__":
+    main()
