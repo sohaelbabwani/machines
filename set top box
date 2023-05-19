@@ -1,0 +1,48 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class SetToBox {
+
+    private JFrame frame;
+    private JPanel panel;
+    private JLabel label;
+    private JButton button;
+    private Set<String> set;
+
+    public SetToBox() {
+        frame = new JFrame("Set to Box");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        panel = new JPanel();
+        label = new JLabel("Enter a string:");
+        button = new JButton("Add to Set");
+        set = new HashSet<>();
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String string = JOptionPane.showInputDialog(frame, "Enter a string:");
+                if (string != null) {
+                    set.add(string);
+                    label.setText("The set contains the following strings:");
+                    for (String s : set) {
+                        label.setText(label.getText() + "\n" + s);
+                    }
+                }
+            }
+        });
+
+        panel.add(label);
+        panel.add(button);
+        frame.add(panel);
+
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new SetToBox();
+    }
+}
