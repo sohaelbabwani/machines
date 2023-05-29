@@ -1,0 +1,89 @@
+import random
+
+# Define the different types of clothes
+clothes = ["socks", "shirts", "pants", "towels", "blankets"]
+
+# Define the different cycle types
+cycles = ["normal", "delicate", "heavy duty"]
+
+# Define the different water levels
+water_levels = ["low", "medium", "high"]
+
+# Define the different temperatures
+temperatures = ["cold", "warm", "hot"]
+
+# Get the user's input
+clothes_type = input("What type of clothes are you washing? ")
+cycle_type = input("What cycle type would you like to use? ")
+water_level = input("What water level would you like to use? ")
+temperature = input("What temperature would you like to use? ")
+
+# Check the user's input
+if clothes_type not in clothes:
+    print("Invalid clothes type.")
+    exit()
+
+if cycle_type not in cycles:
+    print("Invalid cycle type.")
+    exit()
+
+if water_level not in water_levels:
+    print("Invalid water level.")
+    exit()
+
+if temperature not in temperatures:
+    print("Invalid temperature.")
+    exit()
+
+# Start the washing machine
+print("Starting the washing machine...")
+
+# Add the clothes to the washing machine
+clothes_count = random.randint(1, 5)
+for i in range(clothes_count):
+    print("Adding a {} to the washing machine.".format(clothes_type))
+
+# Select the cycle type
+if cycle_type == "normal":
+    print("Selecting the normal cycle.")
+elif cycle_type == "delicate":
+    print("Selecting the delicate cycle.")
+elif cycle_type == "heavy duty":
+    print("Selecting the heavy duty cycle.")
+
+# Select the water level
+if water_level == "low":
+    print("Selecting the low water level.")
+elif water_level == "medium":
+    print("Selecting the medium water level.")
+elif water_level == "high":
+    print("Selecting the high water level.")
+
+# Select the temperature
+if temperature == "cold":
+    print("Selecting the cold water temperature.")
+elif temperature == "warm":
+    print("Selecting the warm water temperature.")
+elif temperature == "hot":
+    print("Selecting the hot water temperature.")
+
+# Start the cycle
+print("Starting the cycle...")
+
+# Wait for the cycle to finish
+time_to_finish = random.randint(10, 30)
+print("The cycle will finish in {} minutes.".format(time_to_finish))
+
+# Wait for the cycle to finish
+for i in range(time_to_finish):
+    print("The cycle is {} minutes in.".format(i))
+
+# Finish the washing machine
+print("The washing machine is finished.")
+
+# Remove the clothes from the washing machine
+for i in range(clothes_count):
+    print("Removing a {} from the washing machine.".format(clothes_type))
+
+# Notify the user that the washing machine is finished
+print("The washing machine is finished.")
