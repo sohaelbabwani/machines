@@ -1,4 +1,4 @@
-# This is a python program for settop box.
+# This is a Java program for settop box.
 
 import java.awt.*;
 import java.awt.event.*;
