@@ -3,7 +3,7 @@ import random
 # Define the different types of clothes
 clothes = ["socks", "shirts", "pants", "towels", "blankets"]
 
-# Define the different cycle types
+# Define the different cycle types like normal, delicate or heavy duty
 cycles = ["normal", "delicate", "heavy duty"]
 
 # Define the different water levels
