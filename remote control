@@ -1,6 +1,6 @@
 # This is a python program for remote control.
 # The code starts here
-
+//code starts here
 import time
 
 class RemoteControl:
