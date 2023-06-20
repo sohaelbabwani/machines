@@ -1,6 +1,6 @@
 # This is a Java program for settop box.
 # The code starts here
-
+//code starts here
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
