@@ -1,0 +1,31 @@
+import time
+
+def mixer_grinder(speed):
+  """Turns on the mixer grinder at the given speed."""
+  print("Turning on the mixer grinder at speed {}.".format(speed))
+  time.sleep(1)
+  print("The mixer grinder is now on.")
+
+def stop_mixer_grinder():
+  """Turns off the mixer grinder."""
+  print("Turning off the mixer grinder.")
+  time.sleep(1)
+  print("The mixer grinder is now off.")
+
+if __name__ == "__main__":
+  # Ask the user for the speed of the mixer grinder.
+  speed = input("What speed do you want to use? (1-10): ")
+
+  # Check if the speed is valid.
+  if int(speed) < 1 or int(speed) > 10:
+    print("Invalid speed.")
+    exit()
+
+  # Turn on the mixer grinder at the given speed.
+  mixer_grinder(speed)
+
+  # Wait for 5 seconds.
+  time.sleep(5)
+
+  # Stop the mixer grinder.
+  stop_mixer_grinder()
