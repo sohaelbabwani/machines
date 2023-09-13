@@ -3,6 +3,7 @@
 // Discuss
 import random
 
+//This is the way to start
 # Define the different types of clothes
 clothes = ["socks", "shirts", "pants", "towels", "blankets"]
 
