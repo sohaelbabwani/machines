@@ -1,0 +1,53 @@
+#include <iostream>
+#include <thread>
+#include <chrono>
+
+using namespace std;
+
+class AlarmClock {
+private:
+    int hours;
+    int minutes;
+    int seconds;
+
+public:
+    AlarmClock(int hours, int minutes, int seconds) {
+        this->hours = hours;
+        this->minutes = minutes;
+        this->seconds = seconds;
+    }
+
+    void ring() {
+        cout << "Beep beep beep!" << endl;
+    }
+
+    void start() {
+        thread t([this] {
+            while (true) {
+                chrono::seconds duration(1);
+                this_thread::sleep_for(duration);
+
+                time_t now = time(nullptr);
+                tm* timeinfo = localtime(&now);
+
+                if (timeinfo->tm_hour == this->hours && timeinfo->tm_min == this->minutes && timeinfo->tm_sec == this->seconds) {
+                    this->ring();
+                    break;
+                }
+            }
+        });
+        t.detach();
+    }
+};
+
+int main() {
+    AlarmClock alarmClock(10, 0, 0); // Set the alarm to ring at 10:00:00 AM
+
+    alarmClock.start();
+
+    while (true) {
+        // Do other things while the alarm is waiting to ring
+    }
+
+    return 0;
+}
