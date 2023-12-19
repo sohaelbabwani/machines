@@ -2,6 +2,7 @@
 # code starts here
 //code starts here
 //dot net uses 'using' instead of import
+\\This is a demo code
 //This is the way to start
 //This is the way to start
 import java.awt.*;
